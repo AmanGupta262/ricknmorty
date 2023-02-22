@@ -201,15 +201,18 @@ export type QueryLocationsByIdsArgs = {
   ids: Array<Scalars['ID']>;
 };
 
-export type GetAllCharactersQueryVariables = Exact<{ [key: string]: never; }>;
+export type GetAllCharactersQueryVariables = Exact<{
+  page?: InputMaybe<Scalars['Int']>;
+  filter?: InputMaybe<FilterCharacter>;
+}>;
 
 
-export type GetAllCharactersQuery = { __typename?: 'Query', characters?: { __typename?: 'Characters', info?: { __typename?: 'Info', count?: number | null, pages?: number | null, next?: number | null, prev?: number | null } | null, results?: Array<{ __typename?: 'Character', id?: string | null, name?: string | null, status?: string | null, species?: string | null, type?: string | null, gender?: string | null, origin?: { __typename?: 'Location', name?: string | null, type?: string | null, dimension?: string | null } | null, location?: { __typename?: 'Location', id?: string | null, name?: string | null } | null } | null> | null } | null };
+export type GetAllCharactersQuery = { __typename?: 'Query', characters?: { __typename?: 'Characters', info?: { __typename?: 'Info', count?: number | null, pages?: number | null, next?: number | null, prev?: number | null } | null, results?: Array<{ __typename?: 'Character', id?: string | null, name?: string | null, status?: string | null, species?: string | null, type?: string | null, gender?: string | null, image?: string | null, created?: string | null, origin?: { __typename?: 'Location', name?: string | null } | null, location?: { __typename?: 'Location', name?: string | null } | null } | null> | null } | null };
 
 
 export const GetAllCharactersDocument = gql`
-    query getAllCharacters {
-  characters {
+    query getAllCharacters($page: Int, $filter: FilterCharacter) {
+  characters(page: $page, filter: $filter) {
     info {
       count
       pages
@@ -225,13 +228,12 @@ export const GetAllCharactersDocument = gql`
       gender
       origin {
         name
-        type
-        dimension
       }
       location {
-        id
         name
       }
+      image
+      created
     }
   }
 }
@@ -249,6 +251,8 @@ export const GetAllCharactersDocument = gql`
  * @example
  * const { data, loading, error } = useGetAllCharactersQuery({
  *   variables: {
+ *      page: // value for 'page'
+ *      filter: // value for 'filter'
  *   },
  * });
  */
