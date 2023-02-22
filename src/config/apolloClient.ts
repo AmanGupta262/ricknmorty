@@ -31,7 +31,9 @@ const retryLink = new RetryLink({
 	},
 });
 
-export const client = new ApolloClient({
+const apolloClient = new ApolloClient({
 	link: from([httpLink, errorLink, retryLink]),
-	cache: new InMemoryCache(),
+	cache: new InMemoryCache({}),
 });
+
+export const client = apolloClient;
