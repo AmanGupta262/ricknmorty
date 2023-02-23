@@ -4,12 +4,22 @@ export interface CharacterCardProps {
 	image: string;
 	gender: string;
 	location: string;
+	onLearnMore: (charId: string) => void;
 }
 
-export interface CharacterUI extends CharacterCardProps {
+export type CharacterUI = Omit<CharacterCardProps, "onLearnMore">;
+
+export interface EpisodeUI {
+	episodeId: string;
+	name: string;
+	episode: string;
+}
+
+export interface CharacterDetails extends CharacterUI {
 	status: string;
 	species: string;
 	type: string;
 	origin: string;
 	created: string;
+	episode: EpisodeUI[];
 }

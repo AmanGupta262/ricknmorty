@@ -1,6 +1,16 @@
 import { gql } from "@apollo/client";
 
 export const getAllCharacters = gql`
+	fragment CharacterFragment on Character {
+		id
+		name
+		gender
+		location {
+			name
+		}
+		image
+		created
+	}
 	query getAllCharacters($page: Int, $filter: FilterCharacter) {
 		characters(page: $page, filter: $filter) {
 			info {
@@ -10,20 +20,7 @@ export const getAllCharacters = gql`
 				prev
 			}
 			results {
-				id
-				name
-				status
-				species
-				type
-				gender
-				origin {
-					name
-				}
-				location {
-					name
-				}
-				image
-				created
+				...CharacterFragment
 			}
 		}
 	}

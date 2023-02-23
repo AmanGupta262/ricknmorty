@@ -9,6 +9,9 @@ describe("CharacterCard", () => {
 		gender: "Female",
 		location: "Test Location",
 		charId: "1",
+		onLearnMore: (charId: string) => {
+			console.log(charId);
+		},
 	};
 
 	it("renders the character's name", () => {

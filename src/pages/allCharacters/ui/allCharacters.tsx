@@ -11,8 +11,13 @@ import { Navbar, CharacterCard } from "components";
 import { useAllCharacters } from "../hooks/useAllCharacters";
 
 export const AllCharacters = () => {
-	const { allCharacters, pageInfo, handlePageChange, loading } =
-		useAllCharacters();
+	const {
+		allCharacters,
+		pageInfo,
+		handlePageChange,
+		loading,
+		fetchCharacterDetails,
+	} = useAllCharacters();
 	return (
 		<>
 			<Navbar />
@@ -45,6 +50,7 @@ export const AllCharacters = () => {
 							gender={character.gender}
 							location={character.location}
 							key={character.charId}
+							onLearnMore={fetchCharacterDetails}
 						/>
 					))}
 				</Container>

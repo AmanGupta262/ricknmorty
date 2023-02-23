@@ -17,6 +17,8 @@ export const CharacterCard = ({
 	image,
 	gender,
 	location,
+	onLearnMore,
+	charId,
 }: CharacterCardProps) => {
 	return (
 		<Card sx={{ width: 270, height: 150, display: "flex" }}>
@@ -86,7 +88,14 @@ export const CharacterCard = ({
 					</Tooltip>
 				</CardContent>
 				<CardActions>
-					<Button size="small">Learn More</Button>
+					<Button
+						onClick={() => {
+							onLearnMore(charId);
+						}}
+						size="small"
+					>
+						Learn More
+					</Button>
 				</CardActions>
 			</Box>
 		</Card>
