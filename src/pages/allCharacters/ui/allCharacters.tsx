@@ -18,11 +18,18 @@ export const AllCharacters = () => {
 		loading,
 		fetchCharacterDetails,
 		characterDetails,
+		setCharacterDetails,
 	} = useAllCharacters();
 	return (
 		<>
 			{characterDetails ? (
-				<CharacterDetails {...characterDetails} open onClose={console.log} />
+				<CharacterDetails
+					{...characterDetails}
+					open
+					onClose={() => {
+						setCharacterDetails(undefined);
+					}}
+				/>
 			) : null}
 			<Navbar />
 			<Backdrop
