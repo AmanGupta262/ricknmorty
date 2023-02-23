@@ -25,6 +25,7 @@ export const CharacterCard = ({
 				sx={{ height: 150, width: 120, objectFit: "cover" }}
 				image={image}
 				title={name}
+				alt={name}
 			/>
 			<Box>
 				<CardContent>
