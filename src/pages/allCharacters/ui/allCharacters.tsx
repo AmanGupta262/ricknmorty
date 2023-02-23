@@ -6,7 +6,7 @@ import {
 	Pagination,
 } from "@mui/material";
 
-import { Navbar, CharacterCard } from "components";
+import { Navbar, CharacterCard, CharacterDetails } from "components";
 
 import { useAllCharacters } from "../hooks/useAllCharacters";
 
@@ -17,9 +17,13 @@ export const AllCharacters = () => {
 		handlePageChange,
 		loading,
 		fetchCharacterDetails,
+		characterDetails,
 	} = useAllCharacters();
 	return (
 		<>
+			{characterDetails ? (
+				<CharacterDetails {...characterDetails} open onClose={console.log} />
+			) : null}
 			<Navbar />
 			<Backdrop
 				open={loading}

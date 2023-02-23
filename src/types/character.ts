@@ -23,3 +23,8 @@ export interface CharacterDetails extends CharacterUI {
 	created: string;
 	episode: EpisodeUI[];
 }
+
+export interface CharacterDetailsModalProps extends CharacterDetails {
+	open: boolean;
+	onClose: () => void;
+}

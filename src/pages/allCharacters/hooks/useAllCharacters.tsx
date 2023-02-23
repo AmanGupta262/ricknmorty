@@ -26,7 +26,7 @@ export const useAllCharacters = () => {
 		},
 	});
 
-	const [getSingleCharacter] = useGetSingleCharacterLazyQuery();
+	const [getSingleCharacter, { loading }] = useGetSingleCharacterLazyQuery();
 
 	const handlePageChange = (page: number) => {
 		void getAllCharacterQuery.refetch({ page });
@@ -44,7 +44,7 @@ export const useAllCharacters = () => {
 	return {
 		allCharacters,
 		pageInfo,
-		loading: getAllCharacterQuery.loading,
+		loading: getAllCharacterQuery.loading || loading,
 		handlePageChange,
 		characterDetails,
 		fetchCharacterDetails,

@@ -77,8 +77,8 @@
 	},
 	"lint-staged": {
 		"**/*.{ts,tsx}": [
-			"yarn format"
-		],
-		"*.scss": "prettier --write"
+			"yarn format",
+			"yarn test --watchAll=false --passWithNoTests --findRelatedTests --bail"
+		]
 	}
 }
