@@ -7,7 +7,7 @@ export const getCharacterDetailsApi = (
 	data: GetSingleCharacterQuery
 ): CharacterDetails | undefined => {
 	if (!data.character) return undefined;
-	const { episode, origin, species, type } = data.character;
+	const { episode, origin, species } = data.character;
 	return {
 		episode: episode.map((eachEpisode) => ({
 			episode: eachEpisode?.episode ?? "",
@@ -17,7 +17,6 @@ export const getCharacterDetailsApi = (
 		})),
 		origin: origin?.name ?? "",
 		species: species ?? "",
-		type: type ?? "",
 		...getCharacterApi(data.character as Character),
 	};
 };

@@ -18,7 +18,6 @@ export interface EpisodeUI {
 
 export interface CharacterDetails extends CharacterUI {
 	species: string;
-	type: string;
 	origin: string;
 	episode: EpisodeUI[];
 }
