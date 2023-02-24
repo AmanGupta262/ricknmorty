@@ -23,11 +23,9 @@ export const CharacterDetails = ({
 	name,
 	onClose,
 	open,
-	created,
 	episode,
 	origin,
 	species,
-	status,
 }: CharacterDetailsModalProps) => {
 	return (
 		<Modal
@@ -97,6 +95,32 @@ export const CharacterDetails = ({
 							title={species}
 						/>
 					</Box>
+				</Box>
+				<Typography my="8px" variant="h6">
+					Episodes
+				</Typography>
+
+				<Box
+					maxHeight="320px"
+					overflow="scroll"
+					display="flex"
+					flexWrap="wrap"
+					gap="16px"
+				>
+					{episode.map((eachEpisode) => (
+						<Box
+							key={eachEpisode.episodeId}
+							border="1px solid gray"
+							padding="8px"
+							borderRadius="4px"
+						>
+							<TypographyTooltip variant="subtitle1" title={eachEpisode.name} />
+							<Box display="flex" flexDirection="column">
+								<Typography variant="caption">{eachEpisode.episode}</Typography>
+								<Typography variant="caption">{eachEpisode.date}</Typography>
+							</Box>
+						</Box>
+					))}
 				</Box>
 			</Box>
 		</Modal>

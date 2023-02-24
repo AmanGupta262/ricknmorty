@@ -8,6 +8,7 @@ export const getSingleCharacter = gql`
 				id
 				name
 				episode
+				air_date
 			}
 			status
 			species

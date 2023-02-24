@@ -216,7 +216,7 @@ export type GetSingleCharacterQueryVariables = Exact<{
 }>;
 
 
-export type GetSingleCharacterQuery = { __typename?: 'Query', character?: { __typename?: 'Character', status?: string | null, species?: string | null, type?: string | null, id?: string | null, name?: string | null, gender?: string | null, image?: string | null, created?: string | null, episode: Array<{ __typename?: 'Episode', id?: string | null, name?: string | null, episode?: string | null } | null>, origin?: { __typename?: 'Location', name?: string | null } | null, location?: { __typename?: 'Location', name?: string | null } | null } | null };
+export type GetSingleCharacterQuery = { __typename?: 'Query', character?: { __typename?: 'Character', status?: string | null, species?: string | null, type?: string | null, id?: string | null, name?: string | null, gender?: string | null, image?: string | null, created?: string | null, episode: Array<{ __typename?: 'Episode', id?: string | null, name?: string | null, episode?: string | null, air_date?: string | null } | null>, origin?: { __typename?: 'Location', name?: string | null } | null, location?: { __typename?: 'Location', name?: string | null } | null } | null };
 
 export const CharacterFragmentFragmentDoc = gql`
     fragment CharacterFragment on Character {
@@ -282,6 +282,7 @@ export const GetSingleCharacterDocument = gql`
       id
       name
       episode
+      air_date
     }
     status
     species

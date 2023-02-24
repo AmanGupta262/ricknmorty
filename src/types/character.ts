@@ -13,14 +13,13 @@ export interface EpisodeUI {
 	episodeId: string;
 	name: string;
 	episode: string;
+	date: string;
 }
 
 export interface CharacterDetails extends CharacterUI {
-	status: string;
 	species: string;
 	type: string;
 	origin: string;
-	created: string;
 	episode: EpisodeUI[];
 }
 

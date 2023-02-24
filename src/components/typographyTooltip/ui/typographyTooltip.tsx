@@ -2,7 +2,11 @@ import { Box, Tooltip, Typography } from "@mui/material";
 
 import { type TypographyTooltipProps } from "types";
 
-export const TypographyTooltip = ({ icon, title }: TypographyTooltipProps) => {
+export const TypographyTooltip = ({
+	icon,
+	title,
+	variant,
+}: TypographyTooltipProps) => {
 	return (
 		<Tooltip title={title}>
 			<Box
@@ -16,9 +20,9 @@ export const TypographyTooltip = ({ icon, title }: TypographyTooltipProps) => {
 				{icon}
 				<Typography
 					sx={{
-						fontSize: "12px",
 						width: "160px",
 					}}
+					variant={variant}
 					noWrap
 				>
 					{title}
