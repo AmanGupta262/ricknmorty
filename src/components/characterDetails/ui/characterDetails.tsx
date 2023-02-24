@@ -1,7 +1,7 @@
 import { Adb, Female, Home, LocationOn } from "@mui/icons-material";
 import { Box, CardMedia, Modal, Tooltip, Typography } from "@mui/material";
 
-import { TypographyTooltip } from "components/typographyTooltip";
+import { Episode, TypographyTooltip } from "components";
 import { type CharacterDetailsModalProps } from "types";
 
 const style = {
@@ -107,19 +107,14 @@ export const CharacterDetails = ({
 					flexWrap="wrap"
 					gap="16px"
 				>
-					{episode.map((eachEpisode) => (
-						<Box
-							key={eachEpisode.episodeId}
-							border="1px solid gray"
-							padding="8px"
-							borderRadius="4px"
-						>
-							<TypographyTooltip variant="subtitle1" title={eachEpisode.name} />
-							<Box display="flex" flexDirection="column">
-								<Typography variant="caption">{eachEpisode.episode}</Typography>
-								<Typography variant="caption">{eachEpisode.date}</Typography>
-							</Box>
-						</Box>
+					{episode.map(({ date, episode, episodeId, name }) => (
+						<Episode
+							key={episodeId}
+							name={name}
+							date={date}
+							episode={episode}
+							episodeId={episodeId}
+						/>
 					))}
 				</Box>
 			</Box>
